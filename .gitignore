@@ -1,0 +1,22 @@
+__pycache__/
+*.py[oc]
+build/
+dist/
+*.egg-info
+.venv
+.pytest_cache/
+
+# Your own profile and settings stay on your machine.
+profile/me.md
+config.yaml
+
+# Private state lives in ~/.igothired, but keep strays out of git just in case.
+*.db
+*.db-*
+.env
+secrets.env
+client_secret*.json
+google_token*.json
+token.json
+credentials.json
+.DS_Store

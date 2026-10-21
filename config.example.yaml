@@ -1,0 +1,69 @@
+# Igothired settings. Secrets never go here; they live in ~/.igothired.
+
+me_name: Your Name
+profile_path: profile/me.md
+
+targeting:
+  # Founders scoring below this are skipped without bothering you.
+  min_fit_score: 65
+  looking_for: |
+    Describe what you want in a few plain sentences. For example:
+    An internship or early role at a pre-seed to Series A startup where I'd build real things,
+    such as AI engineering, data or backend engineering, or growth engineering. San Francisco or remote.
+    Mention anything that limits which roles work for you (visa, location, hours).
+  avoid:
+    - crypto token launches and memecoins
+    - roles that require US citizenship or a security clearance
+    - agencies and recruiting firms
+
+discovery:
+  # Searched once a day. Short, natural phrases work best.
+  post_queries:
+    - hiring founding engineer
+    - looking for a technical cofounder
+    - we're hiring AI engineer intern
+    - startup hiring interns San Francisco
+    - looking for builders early stage startup
+  date_posted: past-week
+  max_pages: 2
+
+limits:
+  invites_per_day: 12
+  invites_per_week: 70
+  messages_per_day: 25
+  new_founders_per_run: 12
+  read_delay: [4, 12]
+  write_delay: [45, 150]
+  send_window:
+    start_hour: 9
+    end_hour: 19
+    weekdays: [0, 1, 2, 3, 4]
+
+messaging:
+  send_connection_note: true
+  note_max_chars: 200       # 300 if you have Premium
+  message_max_chars: 900
+  followup_after_hours: 20
+  give_up_after_days: 21
+  on_note_quota: send_without_note
+
+autonomy:
+  # review: nothing goes out until you approve it in the sheet.
+  # auto: drafts that pass every check go out on their own. Anything flagged still waits for you,
+  #       and so does every reply about calls, pay, start dates or visas.
+  mode: review
+  auto_reply_categories: [question_about_me, asks_for_links, small_talk]
+
+model:
+  name: claude-opus-5-5
+  max_concurrency: 6
+
+linkedin:
+  command: uvx
+  # Pinned on purpose. Bump the version yourself after reading the changelog.
+  args: ["mcp-server-linkedin@4.27.0"]
+  tool_timeout: 240
+
+sheet:
+  title: Igothired
+  allowed_viewers: []

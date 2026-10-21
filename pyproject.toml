@@ -1,0 +1,32 @@
+[project]
+name = "igothired"
+version = "0.1.0"
+description = "Finds startup founders on LinkedIn who are looking for people, researches them, and writes outreach in my voice. You approve from a Google Sheet."
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anthropic>=2.0.0",
+    "google-auth-oauthlib>=1.5.0",
+    "gspread>=6.2.1",
+    "mcp>=2.3.0",
+    "pydantic>=2.14.1",
+    "pyyaml>=6.0.3",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+igothired = "igothired.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.2,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
